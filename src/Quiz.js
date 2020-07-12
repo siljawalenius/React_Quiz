@@ -86,6 +86,9 @@ export class Quiz extends Component {
             });
         }
     }
+    
+
+
 
     render() {
         //get all the states we need
@@ -97,7 +100,10 @@ export class Quiz extends Component {
             return(
                 <div>
                     <h1>Nice job! Your score is {this.state.score} / 5</h1>
+
+                    <button onClick = {() => window.location.reload(false)}> Try Again? </button>
                 </div>
+
             )
         }
 
@@ -118,14 +124,14 @@ export class Quiz extends Component {
                 }
 
                 {currentIndex < quizData.length -1 && 
-                <button disabled = {this.state.disabled}
+                <button disabled = {this.state.nextDisabled}
                         onClick = {this.handleNextQuestion}
                     >
                     Next Question
                 </button>}
                 {currentIndex === quizData.length-1 && 
                     <button onClick = {this.handleFinish} 
-                    disabled = {this.state.disabled}>
+                    disabled = {this.state.nextDisabled}>
                         Finish
                     </button>}
             </div>

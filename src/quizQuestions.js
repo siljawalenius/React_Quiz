@@ -26,7 +26,7 @@ export const quizData = [
 {
     id: 4,
     question: `where does silja want to live next year?`,
-    options: [`byron bay, AUS`, `berlin, DEU`, `new york, NY`, `Vancouver, CA`],
+    options: [`byron bay, AUS`, `berlin, DE`, `new york, NY`, `Vancouver, CA`],
     answer: `byron bay, AUS`
 }
 ]
