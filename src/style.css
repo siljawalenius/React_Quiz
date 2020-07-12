@@ -9,12 +9,13 @@
 
 .App{
     text-align:center;
-    font-family:Arial;
+    font-family: var(--mainFont);
 }
 
 
 h2{
     font-size: 2em;
+    text-align:center;
 }
 
 .options.selected{
@@ -77,4 +78,20 @@ body{
     text-transform: lowercase;
 
     
+}
+
+
+@media(max-width: 800px){
+    .options{
+        max-width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top:40px;
+    }
+
+    .questionNum{
+        display:none;
+    }
 }
