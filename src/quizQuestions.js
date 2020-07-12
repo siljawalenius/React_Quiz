@@ -1,7 +1,7 @@
 export const quizData = [
 {
     id: 0,
-    question: `who was the first man to free solo yosemite`,
+    question: `who is silja's favourite athlete`,
     options: [`tommy caldwell`, `silja walenius`, `alex honnold`, `sanni mccandles`],
     answer: `alex honnold`
 },
