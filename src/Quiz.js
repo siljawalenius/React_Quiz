@@ -5,6 +5,39 @@ import React, { Component } from 'react'
 import {quizData} from './quizQuestions'
 import './style.css'
 
+const url = "https://opentdb.com/api.php?amount=5&category=25";
+
+let questions = [];
+
+const getQuestions =  async () => {
+    fetch(url)
+    .then (response => response.json())
+    .then (loadedQuestions =>{
+        //console.log(loadedQuestions.results)
+        questions = loadedQuestions.results.map((loadedQuestion) => {
+            const formattedQuestion = {
+                question: loadedQuestion.question
+            }
+            
+            console.log(formattedQuestion)
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+            formattedQuestion.answer = Math.floor(Math.random() * 4) +1 ;
+            answerChoices.splice(
+                formattedQuestion.answer -1, 
+                0, 
+                loadedQuestion.correct_answer
+            );
+
+            answerChoices.forEach ((choice, index) =>{
+                formattedQuestion["choice" + (index + 1)] = choice; 
+            })
+
+            return formattedQuestion;
+        })
+    })
+}
+
+
 export class Quiz extends Component {
     constructor(props) {
         super(props)
@@ -15,15 +48,19 @@ export class Quiz extends Component {
              options: [],
              quizEnd: false, //true only for the last quiz question
              score:0,
-             nextDisabled:true //disable the next button until a user selects an option
+             nextDisabled:true, //disable the next button until a user selects an option
+             currentQuestion: null
         }
     }
     
-    loadQuiz = () =>{
+     loadQuiz = async () =>{
+        let availableQuestions = []
+        ( availableQuestions = [...questions])
+
         const {currentIndex} = this.state; //get current quiz state
         this.setState(() => {
             return {
-                question: quizData[currentIndex].question,
+                question: availableQuestions[currentIndex].question,
                 options: quizData[currentIndex].options,
                 answer: quizData[currentIndex].answer
             }
@@ -62,7 +99,11 @@ export class Quiz extends Component {
     }
 
     componentDidMount() {
-        this.loadQuiz();
+        getQuestions() 
+        .then(
+            this.loadQuiz()
+        )
+        
     }
 
     checkAnswer = (answer) =>{ //take an answer, allow the user to click next

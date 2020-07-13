@@ -30,3 +30,6 @@ export const quizData = [
     answer: `byron bay, AUS`
 }
 ]
+
+
+
