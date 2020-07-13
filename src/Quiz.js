@@ -110,7 +110,7 @@ export class Quiz extends Component {
         this.setState({
             userAnswer: answer,
             nextDisabled:false
-        })
+        })  
     }
 
     componentDidUpdate(prevProps, prevState){ //you have to include these params always
