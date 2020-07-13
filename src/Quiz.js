@@ -7,11 +7,14 @@ import './style.css'
 
 const url = "https://opentdb.com/api.php?amount=5&category=25";
 
-let questions = [];
+let questions = []
+let availableQuestions = []
+
 
 const getQuestions =  async () => {
-    fetch(url)
-    .then (response => response.json())
+    return fetch(url)
+    .then (response => response.json()) //turn the response into a json file
+
     .then (loadedQuestions =>{
         //console.log(loadedQuestions.results)
         questions = loadedQuestions.results.map((loadedQuestion) => {
@@ -20,6 +23,7 @@ const getQuestions =  async () => {
             }
             
             console.log(formattedQuestion)
+            availableQuestions.push(formattedQuestion)
             const answerChoices = [...loadedQuestion.incorrect_answers];
             formattedQuestion.answer = Math.floor(Math.random() * 4) +1 ;
             answerChoices.splice(
@@ -37,7 +41,6 @@ const getQuestions =  async () => {
     })
 }
 
-
 export class Quiz extends Component {
     constructor(props) {
         super(props)
@@ -53,14 +56,14 @@ export class Quiz extends Component {
         }
     }
     
-     loadQuiz = async () =>{
-        let availableQuestions = []
+     loadQuiz = () =>{
+
         ( availableQuestions = [...questions])
 
         const {currentIndex} = this.state; //get current quiz state
         this.setState(() => {
             return {
-                question: availableQuestions[currentIndex].question,
+                question: availableQuestions[currentIndex],
                 options: quizData[currentIndex].options,
                 answer: quizData[currentIndex].answer
             }
@@ -99,8 +102,10 @@ export class Quiz extends Component {
     }
 
     componentDidMount() {
-        getQuestions() 
+         getQuestions() 
+
         .then(
+            console.log(availableQuestions),
             this.loadQuiz()
         )
         
@@ -153,7 +158,7 @@ export class Quiz extends Component {
         return (
             <div>
                 <h2>{question}</h2>
-                <span class = "questionNum">{`Question ${currentIndex+1} of ${quizData.length}`}</span>
+                <span className = "questionNum">{`Question ${currentIndex+1} of ${quizData.length}`}</span>
                 {
                     options.map(option => 
                         <p key = {option.id} className = {`options ${userAnswer === option ? "selected" : null}`} 
