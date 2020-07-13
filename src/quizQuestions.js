@@ -1,15 +1,15 @@
 export const quizData = [
 {
     id: 0,
-    question: `who is silja's favourite athlete`,
-    options: [`tommy caldwell`, `silja walenius`, `alex honnold`, `sanni mccandles`],
-    answer: `alex honnold`
+    question: `who is silja's favourite artist?`,
+    options: [`basquiat`, `andy warhol`, `van gogh`, `olafur eliasson`],
+    answer: `basquiat`
 },
 {
     id: 1,
     question: `what is silja's favourite food?`,
-    options: [`frozen mango`, `watermelon slushie`, `pizza`, `homemade sourdough`],
-    answer: `homemade sourdough`
+    options: [`frozen mango`, `watermelon slushies`, `ramen`, `papaya`],
+    answer: `frozen mango`
 },
 {
     id: 2,
