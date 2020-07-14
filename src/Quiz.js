@@ -85,7 +85,7 @@ export class Quiz extends Component {
 
     const { currentIndex } = this.state; //get current quiz state
 
-    let answerString = `choice` + availableQuestions[currentIndex].answer;
+    //let answerString = `choice` + availableQuestions[currentIndex].answer;
 
     this.setState(() => {
       return {
@@ -103,7 +103,7 @@ export class Quiz extends Component {
 
   handleNextQuestion = () => {
     //load and handle next question
-    const { userAnswer, answer, currentIndex, score, options } = this.state; //get current values of all these things
+    const { userAnswer, currentIndex, score, options } = this.state; //get current values of all these things
 
     //let answerString = `choice` + availableQuestions[currentIndex].answer;
     let userResponse = availableQuestions[currentIndex].answer;
@@ -122,7 +122,7 @@ export class Quiz extends Component {
   };
 
   handleFinish = () => {
-    const { userAnswer, answer, currentIndex, score, options } = this.state;
+    const { userAnswer, currentIndex, score, options } = this.state;
 
     let userResponse = availableQuestions[currentIndex].answer;
 
@@ -157,7 +157,7 @@ export class Quiz extends Component {
     //you have to include these params always
     const { currentIndex } = this.state; //new current index now
 
-    let answerString = `choice` + availableQuestions[currentIndex].answer;
+    //let answerString = `choice` + availableQuestions[currentIndex].answer;
     //console.log("asnwerstring : " + answerString)
 
     //we only want to set a new q when the index has changed
