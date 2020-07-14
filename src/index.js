@@ -1,10 +1,15 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import Quiz from './Quiz'
+import Quiz, {Header} from './Quiz'
 
 function App() {
   return (
-    <Quiz></Quiz>
+    <div>
+          <Header></Header>
+         <Quiz></Quiz>
+
+    </div>
+
   )
 }
 
