@@ -8,7 +8,7 @@ export const quizData = [
 {
     id: 1,
     question: `what is silja's favourite food?`,
-    options: [`frozen mango`, `watermelon slushies`, `ramen`, `papaya`],
+    options: [`watermelon slushies`, `ramen`, `frozen mango`, `papaya`],
     answer: `frozen mango`
 },
 {
@@ -20,13 +20,13 @@ export const quizData = [
 {
     id: 3,
     question: `what is silja's favourite activity (aside from coding)`,
-    options: [`doing yoga`, `drawing`, `designing websites/posters/clothes`, `all of the above`],
+    options: [`doing yoga`, `drawing`, `designing websites/illustrations`, `all of the above`],
     answer: `all of the above`
 },
 {
     id: 4,
     question: `where does silja want to live next year?`,
-    options: [`byron bay, AUS`, `berlin, DE`, `new york, NY`, `Vancouver, CA`],
+    options: [`berlin, DE`, `new york, NY`, `byron bay, AUS`, `Vancouver, CA`],
     answer: `byron bay, AUS`
 }
 ]
