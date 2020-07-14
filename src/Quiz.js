@@ -202,8 +202,9 @@ export class Quiz extends Component {
         <span className="questionNum">{`Question ${currentIndex + 1} of ${
           quizData.length
         }`}</span>
-        {options.map((option) => (
+        {options.map((option, i) => (
           <p
+            key = {i}
             className={`options ${userAnswer === option ? "selected" : null}`}
             onClick={() => this.checkAnswer(option)}
           >
